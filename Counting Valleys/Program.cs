@@ -14,6 +14,7 @@ namespace Counting_Valleys
 
             int level = 0;
             int valleyCount = 0;
+            bool isSubLevel = false;
             for (int i = 0; i < s.Length; i++)
             {
                 if (s[i] == 'U')
@@ -23,8 +24,9 @@ namespace Counting_Valleys
                 else if (s[i] == 'D')
                 {
                     level -= 1;
+                    isSubLevel = level >= 0 ? false : true;
                 }
-                if (level == 0)
+                if (level == 0 && isSubLevel == true)
                 {
                     valleyCount += 1;
                 }
